@@ -77,10 +77,10 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 EXPOSE 80
 
 # inside index.php with phpinfo() function.
-#ADD www /var/www/phpinfo
+ADD www /var/www/phpinfo
 
 # Update the default apache site with the config we created.
-#ADD apache-config.conf /etc/apache2/sites-enabled/000-default
+ADD apache-config.conf /etc/apache2/sites-enabled/000-default
 
 # Stack support
 # && passwd -d rocketman \
@@ -104,3 +104,4 @@ RUN rm -fr /tmp/*
 
 # By default, simply start apache.
 CMD /usr/sbin/apache2ctl -D FOREGROUND
+#CMD ["fish"]

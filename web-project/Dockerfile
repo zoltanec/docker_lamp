@@ -1,15 +1,22 @@
 FROM webraketa/web-server
 
+FROM server2
+
 MAINTAINER webraketa <getsite@web-raketa.ru>
 
-ARG SITENAME=local
-RUN SITENAME="gopa"
-RUN export SITENAME
+#ARG SITENAME=local
+#RUN SITENAME="gopa"
+#RUN export SITENAME
 
-RUN mkdir /home/www/rocketman/${SITENAME}
-RUN mkdir /home/www/rocketman/${SITENAME}/public_html
+RUN mkdir /home/www/rocketman/sitename
+RUN mkdir /home/www/rocketman/sitename/public_html
+
 
 # Add apache site with the config we created.
-ADD apache-config.conf /etc/apache2/sites-enabled/www.${SITENAME}_vhost.conf
+ADD apache-config.conf /etc/apache2/sites-enabled/sitename
 
-RUN service apache2 restart
+EXPOSE 80
+
+RUN service apache2 stop
+
+CMD /usr/sbin/apache2ctl -D FOREGROUND
