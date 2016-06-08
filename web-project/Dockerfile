@@ -1,7 +1,5 @@
 FROM webraketa/web-server
 
-FROM server2
-
 MAINTAINER webraketa <getsite@web-raketa.ru>
 
 #ARG SITENAME=local
