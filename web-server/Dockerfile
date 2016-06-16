@@ -22,7 +22,7 @@ RUN apt-get update \
             ca-certificates \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
-  
+
 # Locale setup
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
  && locale-gen \
@@ -34,7 +34,7 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main' \
 
 RUN wget --no-check-certificate --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 
-# Install tools, apache, PHP, and supplimentary programs. curl and lynx-cur are for debugging the container. --no-install-recommends    
+# Install tools, apache, PHP, and supplimentary programs. curl and lynx-cur are for debugging the container. --no-install-recommends
 RUN apt-get update \
  && apt-get install -y \
             git \
@@ -58,7 +58,7 @@ RUN apt-get update \
             lynx-cur \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
- 
+
 # Enable apache mods.
 RUN a2enmod php5
 RUN a2enmod rewrite
@@ -104,4 +104,3 @@ RUN rm -fr /tmp/*
 
 # By default, simply start apache.
 CMD /usr/sbin/apache2ctl -D FOREGROUND
-#CMD ["fish"]
