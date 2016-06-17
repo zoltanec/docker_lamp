@@ -106,7 +106,7 @@ RUN mkdir /home/www/dcms \
 
 USER rocketman
 ADD dcms /home/www/dcms
-RUN ln -s /home/www/dcms/v2.1.7 /home/www/dcms
+RUN ln -s /home/www/dcms /home/www/dcms/v2.1.7
 
 # Cleanup
 USER root
