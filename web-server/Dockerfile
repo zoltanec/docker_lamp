@@ -101,13 +101,12 @@ RUN mkdir -p /home/www/rocketman/.config/fish \
 
 # Clone DCMS
 USER root
-RUN mkdir /home/www/dcms && chown rocketman:rocketman -R /home/www/dcms
+RUN mkdir /home/www/dcms \
+ && chown rocketman:rocketman -R /home/www/dcms
 
 USER rocketman
-WORKDIR /home/www/dcms/
-RUN git clone --bare http://git.web-raketa.ru/geraldus/dcms.git
+ADD dcms /home/www/dcms
 RUN ln -s /home/www/dcms/v2.1.7 /home/www/dcms
-
 
 # Cleanup
 USER root
