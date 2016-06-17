@@ -6,8 +6,7 @@ MAINTAINER webraketa <getsite@web-raketa.ru>
 #RUN SITENAME="gopa"
 #RUN export SITENAME
 
-RUN mkdir /home/www/rocketman/sitename
-RUN mkdir /home/www/rocketman/sitename/public_html
+RUN mkdir -p /var/www/sitename/public_html
 
 
 # Add apache site with the config we created.
